@@ -60,10 +60,12 @@ public class UI {
 		if (!chessMatch.getCheckMate()) {
 			System.out.println("Waiting player: " + chessMatch.getCurrentPlayer());
 			if (chessMatch.getCheck()) {
-				System.out.println("CHECK");
+				System.out.println(ANSI_YELLOW_BACKGROUND + "CHECK");
+				System.out.print(ANSI_RESET);
 			}
 		} else {
-			System.out.println("CHECKMATE!!!");
+			System.out.println(ANSI_YELLOW_BACKGROUND + "CHECKMATE!!!");
+			System.out.print(ANSI_RESET);
 			System.out.println("Winner: " + chessMatch.getCurrentPlayer());
 		}
 	}
@@ -71,13 +73,15 @@ public class UI {
 	public static void printBoard(ChessPiece[][] pieces) {
 
 		for (int i = 0; i < pieces.length; i++) {
-			System.out.print((8 - i) + " ");
+			System.out.print(ANSI_BLUE + (8 - i) + " ");
+			System.out.print(ANSI_RESET);
 			for (int j = 0; j < pieces.length; j++) {
 				printPiece(pieces[i][j], false);
 			}
 			System.out.println();
 		}
-		System.out.println("  A B C D E F G H");
+		System.out.println(ANSI_BLUE + "  A B C D E F G H");
+		System.out.print(ANSI_RESET);
 	}
 
 	public static void printBoard(ChessPiece[][] pieces, boolean[][] possibleMoves) {
@@ -88,7 +92,8 @@ public class UI {
 			}
 			System.out.println();
 		}
-		System.out.println("  A B C D E F G H");
+		System.out.println(ANSI_BLUE + "  A B C D E F G H");
+		System.out.println(ANSI_RESET);
 	}
 
 	private static void printPiece(ChessPiece piece, boolean background) {
